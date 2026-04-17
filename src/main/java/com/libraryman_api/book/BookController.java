@@ -101,7 +101,7 @@ public class BookController {
      */
     @DeleteMapping("delete-book/{id}")
     @PreAuthorize("hasRole('LIBRARIAN') or hasRole('ADMIN')")
-    public void deleteBook(@PathVariable int id) {
+    public ResponseEntity<String> deleteBook(@PathVariable int id) {
         bookService.deleteBook(id);
         return ResponseEntity.ok("Book with ID " + id + " has been successfully deleted from the system.");    
     }
